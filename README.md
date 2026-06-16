@@ -70,14 +70,14 @@ The actual output includes rarity, power, cost, icon key, description, tags, and
 | `Samples~/ItemCatalog/items.csv` | Valid sample designer-authored content |
 | `Samples~/ItemCatalog/items_with_errors.csv` | Broken sample data for validation demos |
 | `Samples~/ItemCatalog/Generated/item_catalog.generated.json` | Example generated config |
-| `Tools/ValidationHarness` | .NET console validation harness |
+| `Tools~/ValidationHarness` | .NET console validation harness. The tilde keeps it out of Unity's package import. |
 
 ## Running The Local Harness
 
 From the repository root:
 
 ```powershell
-dotnet run --project .\Tools\ValidationHarness\ValidationHarness.csproj
+dotnet run --project .\Tools~\ValidationHarness\ValidationHarness.csproj
 ```
 
 Expected result:
