@@ -10,8 +10,11 @@ namespace DavonAllen.ContentPipelineDemo.Editor
         private TextAsset csvSource;
         private DefaultAsset outputFolder;
         private bool includeDisabled;
+        private bool generateJson = true;
+        private bool generateScriptableObjects = true;
         private Vector2 diagnosticsScroll;
         private ItemCatalogPipelineResult lastResult;
+        private int lastGeneratedAssetCount;
         private string lastOutputPath = "Assets/Generated/item_catalog.generated.json";
 
         [MenuItem("Tools/Davon/Content Pipeline Demo")]
@@ -30,6 +33,8 @@ namespace DavonAllen.ContentPipelineDemo.Editor
             csvSource = (TextAsset)EditorGUILayout.ObjectField("CSV Source", csvSource, typeof(TextAsset), false);
             outputFolder = (DefaultAsset)EditorGUILayout.ObjectField("Output Folder", outputFolder, typeof(DefaultAsset), false);
             includeDisabled = EditorGUILayout.Toggle("Include Disabled Rows", includeDisabled);
+            generateJson = EditorGUILayout.Toggle("Generate JSON", generateJson);
+            generateScriptableObjects = EditorGUILayout.Toggle("Generate ScriptableObjects", generateScriptableObjects);
 
             EditorGUILayout.Space(8);
 
@@ -58,14 +63,28 @@ namespace DavonAllen.ContentPipelineDemo.Editor
 
             if (lastResult.HasErrors)
             {
+                lastGeneratedAssetCount = 0;
                 return;
             }
 
             string outputDirectory = ResolveOutputDirectory();
-            Directory.CreateDirectory(outputDirectory);
-            lastOutputPath = Path.Combine(outputDirectory, "item_catalog.generated.json").Replace("\\", "/");
-            File.WriteAllText(lastOutputPath, lastResult.GeneratedJson);
-            AssetDatabase.Refresh();
+
+            if (generateJson)
+            {
+                Directory.CreateDirectory(outputDirectory);
+                lastOutputPath = Path.Combine(outputDirectory, "item_catalog.generated.json").Replace("\\", "/");
+                File.WriteAllText(lastOutputPath, lastResult.GeneratedJson);
+                AssetDatabase.Refresh();
+            }
+
+            lastGeneratedAssetCount = 0;
+
+            if (generateScriptableObjects)
+            {
+                string assetOutputDirectory = Path.Combine(outputDirectory, "ItemDefinitions").Replace("\\", "/");
+                ItemScriptableObjectGenerator generator = new ItemScriptableObjectGenerator();
+                lastGeneratedAssetCount = generator.Generate(lastResult.Items, assetOutputDirectory);
+            }
         }
 
         private string ResolveOutputDirectory()
@@ -99,7 +118,18 @@ namespace DavonAllen.ContentPipelineDemo.Editor
                 return;
             }
 
-            string message = "Generated " + lastResult.Items.Count + " item(s) at " + lastOutputPath + ".";
+            string message = "Validated " + lastResult.Items.Count + " item(s).";
+
+            if (generateJson)
+            {
+                message += " JSON: " + lastOutputPath + ".";
+            }
+
+            if (generateScriptableObjects)
+            {
+                message += " ScriptableObjects: " + lastGeneratedAssetCount + ".";
+            }
+
             MessageType messageType = lastResult.HasWarnings ? MessageType.Warning : MessageType.Info;
             EditorGUILayout.HelpBox(message, messageType);
         }

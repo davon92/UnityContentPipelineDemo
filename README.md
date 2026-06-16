@@ -12,6 +12,7 @@ This demo shows that I can:
 - parse designer-authored CSV without external packages
 - validate data quality and produce actionable errors
 - generate runtime-friendly JSON config
+- generate Unity `ScriptableObject` item assets
 - wrap the pipeline in a Unity Editor window
 - keep core logic testable outside the Unity editor
 - document the workflow so designers, engineers, and reviewers can understand it quickly
@@ -54,6 +55,7 @@ The actual output includes rarity, power, cost, icon key, description, tags, and
 - numeric range validation
 - warnings for weak content metadata
 - JSON export with deterministic ordering
+- ScriptableObject generation for Unity-native content workflows
 - Unity Editor window under `Tools/Davon/Content Pipeline Demo`
 - .NET validation harness for local checks outside Unity
 
@@ -62,7 +64,9 @@ The actual output includes rarity, power, cost, icon key, description, tags, and
 | Path | Purpose |
 | --- | --- |
 | `Runtime/ContentPipeline` | Pure C# parser, validator, exporter, and pipeline orchestration |
+| `Runtime/Unity/ItemDefinitionAsset.cs` | Unity-native generated item asset type |
 | `Editor/ContentPipelineWindow.cs` | Unity Editor workflow wrapper |
+| `Editor/ItemScriptableObjectGenerator.cs` | Creates or updates generated item assets |
 | `Samples~/ItemCatalog/items.csv` | Valid sample designer-authored content |
 | `Samples~/ItemCatalog/items_with_errors.csv` | Broken sample data for validation demos |
 | `Samples~/ItemCatalog/Generated/item_catalog.generated.json` | Example generated config |
@@ -93,7 +97,7 @@ This repository is structured as a Unity package.
 3. Open `Tools > Davon > Content Pipeline Demo`.
 4. Select a CSV file, choose an output folder, and run `Validate And Generate`.
 5. Review diagnostics in the editor window.
-6. Use the generated JSON in runtime systems or build pipelines.
+6. Use the generated JSON and/or generated `ItemDefinitionAsset` assets in runtime systems or build pipelines.
 
 ## Validation Examples
 
@@ -119,7 +123,6 @@ A useful content pipeline does more than import data. It gives creators fast fee
 
 ## Next Improvements
 
-- Generate Unity `ScriptableObject` assets in addition to JSON.
 - Add a preview table in the editor window.
 - Add diff output so designers can see what changed between imports.
 - Add severity filters and exportable validation reports.
