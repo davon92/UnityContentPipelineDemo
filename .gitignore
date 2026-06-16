@@ -10,6 +10,7 @@
 
 # Unity generated files
 *.csproj
+!Tools~/ValidationHarness/ValidationHarness.csproj
 *.sln
 *.suo
 *.tmp
