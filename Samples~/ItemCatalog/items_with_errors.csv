@@ -1,0 +1,6 @@
+id,displayName,category,rarity,power,cost,iconKey,description,tags,enabled
+Iron Sword,Iron Sword,Weapon,Common,12,100,icon_sword_iron,Reliable starter sword,melee;starter,true
+storm_staff,Storm Staff,Weapon,Mythic,42,850,icon_staff_storm,Channels lightning into chained attacks,magic;lightning,true
+storm_staff,Storm Staff Duplicate,Weapon,Rare,42,850,icon_staff_storm,Duplicate item row,magic;lightning,true
+broken_charm,,Trinket,Rare,-5,-20,,Too short,magic;magic,yes
+bad_enabled,Bad Enabled,Trinket,Common,1,10,icon_bad,Broken enabled flag,test,maybe

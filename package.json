@@ -1,0 +1,25 @@
+{
+  "name": "com.davonallen.content-pipeline-demo",
+  "version": "0.1.0",
+  "displayName": "Davon Allen Content Pipeline Demo",
+  "description": "Unity editor tooling demo for CSV validation and generated game config output.",
+  "unity": "2022.3",
+  "author": {
+    "name": "Davon Allen",
+    "url": "https://www.davonallen.com"
+  },
+  "keywords": [
+    "unity",
+    "editor-tools",
+    "content-pipeline",
+    "csv",
+    "validation"
+  ],
+  "samples": [
+    {
+      "displayName": "Item Catalog Samples",
+      "description": "Valid and invalid CSV item catalog samples plus generated JSON output.",
+      "path": "Samples~/ItemCatalog"
+    }
+  ]
+}
