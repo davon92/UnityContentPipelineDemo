@@ -1,0 +1,54 @@
+{
+  "generatedAtUtc": "2026-06-16T00:00:00.0000000Z",
+  "itemCount": 4,
+  "items": [
+    {
+      "id": "ember_cloak",
+      "displayName": "Ember Cloak",
+      "category": "Armor",
+      "rarity": "Uncommon",
+      "power": 6,
+      "cost": 320,
+      "iconKey": "icon_cloak_ember",
+      "description": "Light armor with fire resistance",
+      "tags": ["armor", "fire"],
+      "enabled": true
+    },
+    {
+      "id": "iron_sword",
+      "displayName": "Iron Sword",
+      "category": "Weapon",
+      "rarity": "Common",
+      "power": 12,
+      "cost": 100,
+      "iconKey": "icon_sword_iron",
+      "description": "Reliable starter sword",
+      "tags": ["melee", "starter"],
+      "enabled": true
+    },
+    {
+      "id": "merchant_token",
+      "displayName": "Merchant Token",
+      "category": "Currency",
+      "rarity": "Epic",
+      "power": 0,
+      "cost": 1,
+      "iconKey": "icon_token_merchant",
+      "description": "Used to unlock a rare merchant exchange",
+      "tags": ["currency", "exchange"],
+      "enabled": true
+    },
+    {
+      "id": "storm_staff",
+      "displayName": "Storm Staff",
+      "category": "Weapon",
+      "rarity": "Rare",
+      "power": 42,
+      "cost": 850,
+      "iconKey": "icon_staff_storm",
+      "description": "Channels lightning into chained attacks",
+      "tags": ["magic", "lightning"],
+      "enabled": true
+    }
+  ]
+}
