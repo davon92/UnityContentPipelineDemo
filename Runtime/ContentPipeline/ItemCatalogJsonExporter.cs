@@ -30,6 +30,7 @@ namespace DavonAllen.ContentPipelineDemo
                 json.AppendLine("      \"rarity\": \"" + item.Rarity + "\",");
                 json.AppendLine("      \"power\": " + item.Power + ",");
                 json.AppendLine("      \"cost\": " + item.Cost + ",");
+                json.AppendLine("      \"maxStackSize\": " + item.MaxStackSize + ",");
                 json.AppendLine("      \"iconKey\": \"" + Escape(item.IconKey) + "\",");
                 json.AppendLine("      \"description\": \"" + Escape(item.Description) + "\",");
                 json.AppendLine("      \"tags\": [" + FormatTags(item.Tags) + "],");
