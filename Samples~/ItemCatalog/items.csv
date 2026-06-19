@@ -1,6 +1,6 @@
-id,displayName,category,rarity,power,cost,iconKey,description,tags,enabled
-iron_sword,Iron Sword,Weapon,Common,12,100,icon_sword_iron,Reliable starter sword,melee;starter,true
-storm_staff,Storm Staff,Weapon,Rare,42,850,icon_staff_storm,Channels lightning into chained attacks,magic;lightning,true
-ember_cloak,Ember Cloak,Armor,Uncommon,6,320,icon_cloak_ember,Light armor with fire resistance,armor;fire,true
-merchant_token,Merchant Token,Currency,Epic,0,1,icon_token_merchant,Used to unlock a rare merchant exchange,currency;exchange,true
-old_training_blade,Old Training Blade,Weapon,Common,4,0,icon_sword_training,Disabled tutorial test item,melee;tutorial,false
+id,displayName,category,rarity,power,cost,maxStackSize,iconKey,description,tags,enabled
+iron_sword,Iron Sword,Weapon,Common,12,100,1,icon_sword_iron,Reliable starter sword,melee;starter,true
+storm_staff,Storm Staff,Weapon,Rare,42,850,1,icon_staff_storm,Channels lightning into chained attacks,magic;lightning,true
+ember_cloak,Ember Cloak,Armor,Uncommon,6,320,1,icon_cloak_ember,Light armor with fire resistance,armor;fire,true
+merchant_token,Merchant Token,Currency,Epic,0,1,99,icon_token_merchant,Used to unlock a rare merchant exchange,currency;exchange,true
+old_training_blade,Old Training Blade,Weapon,Common,4,0,2,icon_sword_training,Disabled tutorial test item,melee;tutorial,false
