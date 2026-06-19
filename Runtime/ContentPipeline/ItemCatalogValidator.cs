@@ -58,6 +58,11 @@ namespace DavonAllen.ContentPipelineDemo
                     diagnostics.Add(new PipelineDiagnostic(DiagnosticSeverity.Error, "COST_NEGATIVE", "Cost cannot be negative.", item.SourceLine, "cost"));
                 }
 
+                if (item.MaxStackSize < 1)
+                {
+                    diagnostics.Add(new PipelineDiagnostic(DiagnosticSeverity.Error, "STACKSIZE_LESSTHANONE", "MaxStackSize cannot be less than one.", item.SourceLine, "maxStackSize"));
+                }
+
                 if (string.IsNullOrWhiteSpace(item.IconKey))
                 {
                     diagnostics.Add(new PipelineDiagnostic(DiagnosticSeverity.Warning, "ICON_MISSING", "Icon key is empty; UI may show a fallback icon.", item.SourceLine, "iconKey"));

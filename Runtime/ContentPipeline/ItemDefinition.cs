@@ -8,6 +8,7 @@ namespace DavonAllen.ContentPipelineDemo
         public ItemRarity Rarity { get; set; }
         public int Power { get; set; }
         public int Cost { get; set; }
+        public int MaxStackSize { get; set; }
         public string IconKey { get; set; }
         public string Description { get; set; }
         public string[] Tags { get; set; }
