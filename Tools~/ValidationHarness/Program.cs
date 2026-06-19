@@ -26,6 +26,7 @@ namespace ValidationHarness
             bool invalidSamplePassed = invalidResult.HasErrors && invalidResult.Diagnostics.Count(d => d.Severity == DiagnosticSeverity.Error) >= 4;
             bool jsonPassed = validResult.GeneratedJson.Contains("\"id\": \"storm_staff\"") &&
                               validResult.GeneratedJson.Contains("\"itemCount\": 4") &&
+                              validResult.GeneratedJson.Contains("\"maxStackSize\": 99") &&
                               !validResult.GeneratedJson.Contains("old_training_blade");
 
             PrintResult("Valid sample", validSamplePassed);
